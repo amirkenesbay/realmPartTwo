@@ -10,6 +10,7 @@ Realm is a mobile database that runs directly inside phones, tablets or wearable
 ## Quick Startup
 
 ### Prerequisite
+<hr>
 Start a new [KMM]('https://www.google.ru/') project. 
 
 ### Setup
