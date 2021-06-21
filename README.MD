@@ -4,16 +4,16 @@
 
 Realm is a mobile database that runs directly inside phones, tablets or wearables. This repository holds the source code for the Kotlin SDK for Realm, which runs on Kotlin Multiplatform and Android.
 
-## Examples
+# Examples
 [https://github.com/realm/realm-kotlin-samples]('https://www.google.ru/')
 
-## Quick Startup
+# Quick Startup
 
-### Prerequisite
+## Prerequisite
 
 Start a new [KMM]('https://www.google.ru/') project. 
 
-### Setup
+## Setup
 + Add the following Gradle configuration in the root project (make sure you're using Kotlin `1.4.20` or recent) `<root project>/build.gradle.kts`
 
 ```
@@ -63,7 +63,7 @@ kotlin {
 <img src="https://github.com/realm/realm-kotlin/raw/master/images/SharedGradle.png" alt="realm">
 </p>
 
-### Define model
+## Define model
 
 Start writing your shared database logic in the shared module by defining first your model
 
@@ -79,7 +79,7 @@ class Dog : RealmObject {
 }
 ```
 
-### Open Database
+## Open Database
 Define a _RealmConfiguration_ with the database schema, then open the Realm using it.
 ```
 val configuration = RealmConfiguration(schema = setOf(Person::class, Dog::class))
@@ -88,7 +88,7 @@ val configuration = RealmConfiguration(schema = setOf(Person::class, Dog::class)
 val realm = Realm.open(configuration)
 ```
 
-### Write
+## Write
 Persist some data by instantiating the data objects and copying it into the open Realm instance
 ```
 // plain old kotlin object
@@ -111,7 +111,7 @@ realm.create<Person>().apply {
 realm.commitTransaction()
 ```
 
-### Query
+## Query
 The query language supported by Realm is inspired by Apple’s [NSPredicate]('https://www.google.ru/'), see more examples [here]('https://www.google.ru/')
 ```
 // All Persons
@@ -124,7 +124,7 @@ val filteredByName = realm.objects<Person>().query("name = $0", "Carlo")
 val filteredByDog = realm.objects<Person>().query("dog.age > $0 AND dog.name BEGINSWITH $1", 7, "Fi")
 ```
 
-### Update
+## Update
 ```
 // Find the first Person without a dog
 realm.objects<Person>().query("dog == NULL LIMIT(1)")
@@ -137,7 +137,7 @@ realm.objects<Person>().query("dog == NULL LIMIT(1)")
     }
 ```
 
-### Delete
+## Delete
 Use the result of a query to delete from the database
 ```
 // delete all Dogs
@@ -150,19 +150,19 @@ Next: head to the full KMM [example]('https://www.google.ru/').
 <br>
 NOTE: The SDK doesn't currently support `x86` - Please use an `x86_64` or `arm64` emulator/device
 
-## Developer Preview
+# Developer Preview
 The Realm Kotlin SDK is in Developer Preview. All API's might change without warning and no guarantees are given about stability. Do not use in production.
 
-### Design documents
+## Design documents
 The public API of the SDK has not been finalized. Design discussions will happen in both Google Doc and this Github repository. Most bigger features will first undergo a design process that might not involve code. These design documents can be found using the following links:
 + [Intial Project Description]('https://www.google.ru/')
 + [API Design Overview]('https://www.google.ru/')
 
-## How to build locally:
-### Prerequisites
+# How to build locally:
+## Prerequisites
 + Swig. On Mac this can be installed using Homebrew: `brew install swig`.
 + CMake 3.18.1. Can be installed through the Android SDK Manager.
-### Commands to build from source
+## Commands to build from source
 ```
 git submodule update --init --recursive
 cd packages
@@ -178,7 +178,7 @@ cd test
 ./gradlew macosTest
 ```
 
-## Using Snapshots
+# Using Snapshots
 If you want to test recent bugfixes or features that have not been packaged in an official release yet, you can use a -**SNAPSHOT** release of the current development version of Realm via Gradle, available on [JFrog OSS]('https://www.google.ru/')
 ```
 // Global build.gradle
@@ -214,9 +214,9 @@ allprojects {
 
 See [Config.kt]('https://www.google.ru/') for the latest version number.
 
-## Repository Guidelines
+# Repository Guidelines
 
-### Branch Strategy
+## Branch Strategy
 
 We have three branches for shared development: `master`, `releases` and `next-major`. Tagged releases are only made from `releases`.
 <br>
@@ -236,7 +236,7 @@ We have three branches for shared development: `master`, `releases` and `next-ma
 
 Note: We currently only have the `master` branch, as no tagged releases have been made yet.
 
-### Code Style
+## Code Style
 
 We use the offical [style guide]('https://www.google.ru/') from Kotlin which is enforced using ktlint and detekt.
 
@@ -250,7 +250,7 @@ We use the offical [style guide]('https://www.google.ru/') from Kotlin which is 
 ```
 
 Note: ktlint does not allow group imports using `.*`. You can configure IntelliJ to disallow this by going to preferences `Editor > Code Style > Kotlin > Imports` and select "Use single name imports".
-### Writing Tests
+## Writing Tests
 Currently all unit tests should be place in the `test/` project instead of `packages/library`. The reason for this is that we need to apply the Realm Compiler Plugin to the tests and this introduces a circular dependency if the tests are in `library`.
 <br><br>
 Inside `tests/` there are 3 locations the files can be placed in:
@@ -270,21 +270,21 @@ ln -sf ../../../../../androidTest/kotlin/io/realm/shared/* ./
 
 All platform specific tests should be placed outside the `io.realm.shared package`, the default being `io.realm`.
 
-### Defining dependencies
+## Defining dependencies
 All dependency versions and other constants we might want to share between projects are defined inside the file `buildSrc/src/main/kotlin/Config.kt`. Any new dependencies should be added to this file as well, so we only have one location for these.
 
-### Contributing Enhancements
+## Contributing Enhancements
 We love contributions to Realm! If you'd like to contribute code, documentation, or any other improvements, please [file a Pull Request]('https://www.google.ru/') on our GitHub repository. Make sure to accept our [CLA]('https://www.google.ru/')!
 <br><br>
 This project adheres to the [Contributor Covenant Code of Conduct]('https://www.google.ru/'). By participating, you are expected to uphold this code. Please report unacceptable behavior to [info@realm.io]('https://www.google.ru/').
 
-### CLA
+## CLA
 Realm welcomes all contributions! The only requirement we have is that, like many other projects, we need to have a [Contributor License Agreement]('https://www.google.ru/') (CLA) in place before we can accept any external code. Our own CLA is a modified version of the Apache Software Foundation’s CLA.
 <br><br>
 [Please submit your CLA electronically using our Google form]('https://www.google.ru/') so we can accept your submissions. The GitHub username you file there will need to match that of your Pull Requests. If you have any questions or cannot file the CLA electronically, you can email [help@realm.io]('https://www.google.ru/').
 
-## Samples
+# Samples
 
-### Kotlin Multiplatform Sample
+## Kotlin Multiplatform Sample
 
 The folder `examples/kmm-sample` contains an example showing how to use Realm in a multiplatform project, sharing code for using Realm in the shared module. The project is based on `https://github.com/Kotlin/kmm-sample`.
