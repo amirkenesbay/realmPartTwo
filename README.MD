@@ -5,13 +5,14 @@
 Realm is a mobile database that runs directly inside phones, tablets or wearables. This repository holds the source code for the Kotlin SDK for Realm, which runs on Kotlin Multiplatform and Android.
 
 # Examples
-[https://github.com/realm/realm-kotlin-samples]('https://www.google.ru/')
+
+https://github.com/realm/realm-kotlin-samples
 
 # Quick Startup
 
 ## Prerequisite
 
-Start a new [KMM]('https://www.google.ru/') project. 
+Start a new [KMM](google.ru) project. 
 
 ## Setup
 + Add the following Gradle configuration in the root project (make sure you're using Kotlin `1.4.20` or recent) `<root project>/build.gradle.kts`
@@ -42,7 +43,7 @@ allprojects {
 
 + Apply the `realm-kotlin` plugin and specify the dependency in the common source set.
   
-_See [Config.kt]('https://www.google.ru/') for the latest version number._
+_See [Config.kt](https://www.google.ru/) for the latest version number._
 ```
 plugins {
     kotlin("multiplatform")
@@ -112,7 +113,7 @@ realm.commitTransaction()
 ```
 
 ## Query
-The query language supported by Realm is inspired by Apple’s [NSPredicate]('https://www.google.ru/'), see more examples [here]('https://www.google.ru/')
+The query language supported by Realm is inspired by Apple’s [NSPredicate](https://www.google.ru/), see more examples [here](https://www.google.ru/)
 ```
 // All Persons
 val all = realm.objects<Person>()
@@ -146,7 +147,7 @@ realm.objects<Dog>().delete()
 realm.commitTransaction()
 ```
 
-Next: head to the full KMM [example]('https://www.google.ru/').
+Next: head to the full KMM [example](https://www.google.ru/).
 <br>
 NOTE: The SDK doesn't currently support `x86` - Please use an `x86_64` or `arm64` emulator/device
 
@@ -155,8 +156,8 @@ The Realm Kotlin SDK is in Developer Preview. All API's might change without war
 
 ## Design documents
 The public API of the SDK has not been finalized. Design discussions will happen in both Google Doc and this Github repository. Most bigger features will first undergo a design process that might not involve code. These design documents can be found using the following links:
-+ [Intial Project Description]('https://www.google.ru/')
-+ [API Design Overview]('https://www.google.ru/')
++ [Intial Project Description](https://www.google.ru/)
++ [API Design Overview](https://www.google.ru/)
 
 # How to build locally:
 ## Prerequisites
@@ -179,7 +180,7 @@ cd test
 ```
 
 # Using Snapshots
-If you want to test recent bugfixes or features that have not been packaged in an official release yet, you can use a -**SNAPSHOT** release of the current development version of Realm via Gradle, available on [JFrog OSS]('https://www.google.ru/')
+If you want to test recent bugfixes or features that have not been packaged in an official release yet, you can use a -**SNAPSHOT** release of the current development version of Realm via Gradle, available on [JFrog OSS](https://www.google.ru/)
 ```
 // Global build.gradle
 buildscript {
@@ -212,7 +213,7 @@ allprojects {
 }
 ```
 
-See [Config.kt]('https://www.google.ru/') for the latest version number.
+See [Config.kt](https://www.google.ru/) for the latest version number.
 
 # Repository Guidelines
 
@@ -223,7 +224,7 @@ We have three branches for shared development: `master`, `releases` and `next-ma
 `master`:
 + Target branch for new features.
 + Cotains the latest publishable state of the SDK.
-+ [SNAPSHOT releases]('https://www.google.ru/') are being created for every commit.
++ [SNAPSHOT releases](https://www.google.ru/) are being created for every commit.
   
 `releases`:
 + All tagged releases are made from this branch.
@@ -238,7 +239,7 @@ Note: We currently only have the `master` branch, as no tagged releases have bee
 
 ## Code Style
 
-We use the offical [style guide]('https://www.google.ru/') from Kotlin which is enforced using ktlint and detekt.
+We use the offical [style guide](https://www.google.ru/) from Kotlin which is enforced using [ktlint](https://www.google.ru/) and [detekt](https://www.google.ru/).
 
 ```
 # Call from root folder to check if code is compliant.
@@ -258,7 +259,7 @@ Inside `tests/` there are 3 locations the files can be placed in:
 + `test/src/androidTest`
 + `test/src/androidTest`
 
-Ideally all shared tests should be in `commonTest` with specific platform tests in `androidTest/macosTest`. However IntelliJ does not yet allow you run you to run common tests on Android from within the IDE]([https://youtrack.jetbrains.com/issue/KT-46452]('https://www.google.ru/')), so we are using the following work-around:
+Ideally all shared tests should be in `commonTest` with specific platform tests in `androidTest/macosTest`. However IntelliJ does not yet allow you run you to run common tests on Android from within the IDE]([https://youtrack.jetbrains.com/issue/KT-46452](https://www.google.ru/)), so we are using the following work-around:
 1. All "common" tests should be placed in the `test/src/androidtest/kotlin/io/realm/shared folder`. They should be written using only common API's. I'e. use Kotlin Test, not JUnit. This `io.realm.shared` package should only contain tests we plan to eventually move to `commontTest`.
 2. When adding a new test file to `androidTest` we need to re-create the symlinks for macOS. This can be done, using the following command on Mac:
 ```
@@ -274,14 +275,14 @@ All platform specific tests should be placed outside the `io.realm.shared packag
 All dependency versions and other constants we might want to share between projects are defined inside the file `buildSrc/src/main/kotlin/Config.kt`. Any new dependencies should be added to this file as well, so we only have one location for these.
 
 ## Contributing Enhancements
-We love contributions to Realm! If you'd like to contribute code, documentation, or any other improvements, please [file a Pull Request]('https://www.google.ru/') on our GitHub repository. Make sure to accept our [CLA]('https://www.google.ru/')!
+We love contributions to Realm! If you'd like to contribute code, documentation, or any other improvements, please [file a Pull Request](https://www.google.ru/) on our GitHub repository. Make sure to accept our [CLA](https://www.google.ru/)!
 <br><br>
-This project adheres to the [Contributor Covenant Code of Conduct]('https://www.google.ru/'). By participating, you are expected to uphold this code. Please report unacceptable behavior to [info@realm.io]('https://www.google.ru/').
+This project adheres to the [Contributor Covenant Code of Conduct](https://www.google.ru/). By participating, you are expected to uphold this code. Please report unacceptable behavior to [info@realm.io](https://www.google.ru/).
 
-## CLA
-Realm welcomes all contributions! The only requirement we have is that, like many other projects, we need to have a [Contributor License Agreement]('https://www.google.ru/') (CLA) in place before we can accept any external code. Our own CLA is a modified version of the Apache Software Foundation’s CLA.
+## CL
+Realm welcomes all contributions! The only requirement we have is that, like many other projects, we need to have a [Contributor License Agreement](https://www.google.ru/) (CLA) in place before we can accept any external code. Our own CLA is a modified version of the Apache Software Foundation’s CLA.
 <br><br>
-[Please submit your CLA electronically using our Google form]('https://www.google.ru/') so we can accept your submissions. The GitHub username you file there will need to match that of your Pull Requests. If you have any questions or cannot file the CLA electronically, you can email [help@realm.io]('https://www.google.ru/').
+[Please submit your CLA electronically using our Google form](https://www.google.ru/) so we can accept your submissions. The GitHub username you file there will need to match that of your Pull Requests. If you have any questions or cannot file the CLA electronically, you can email [help@realm.io](https://www.google.ru/).
 
 # Samples
 
